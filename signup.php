@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Business Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Register Your Business</h2>
+
+<form method="POST" action="register_process.php">
+    <input type="text" name="name" placeholder="Owner Name" required><br><br>
+    <input type="email" name="email" placeholder="Email" required><br><br>
+    <input type="password" name="password" placeholder="Password" required><br><br>
+
+    <input type="text" name="business_name" placeholder="Business Name" required><br><br>
+    <input type="text" name="address" placeholder="Address" required><br><br>
+    <input type="text" name="contact_number" placeholder="Contact Number" required><br><br>
+
+    <button type="submit">Register</button>
+    
+</form>
+
+</body>
+</html>

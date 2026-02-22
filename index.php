@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAB-BILIS</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">MAB-BILIS</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Local businesses</a></li>
+        <li><a href="#">Tourist Spots</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="javascript:void(0)" id="loginBtn">Login</a></li>
+        <li><a href="javascript:void(0)" id="signupBtn">Sign Up</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>MAB-BILIS</h1>
+    <p>Your guide to the best products, services, and tourist spots in Mabinay. Explore, discover, and enjoy!</p>
+    <a href="#" class="btn">Explore Now</a>
+</section>
+
+<!-- LOCAL BUSINESSES -->
+<section>
+    <h2>Local businesses</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://img.icons8.com/color/96/000000/shop.png" alt="Shop">
+            <h3>KERR IT SOLUTIONS</h3>
+            <p>Browse and order from registered local shops in Mabinay easily and quickly.</p>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/color/96/000000/delivery.png" alt="Delivery">
+            <h3>Don Macchiatos</h3>
+            <p>Track and receive your items conveniently with real-time updates.</p>
+        </div>
+        <div class="card">
+            <br><br><br><br><br>
+            <h3>Bakery</h3>
+            <p>Get fresh products delivered straight from local markets.</p>
+        </div>
+    </div>
+</section>
+
+<!-- TOURIST SPOTS -->
+<section>
+    <h2>Tourist Spots</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://img.icons8.com/color/96/000000/mountain.png" alt="Mountain">
+            <h3>Mabinay Spring</h3>
+            <p>Discover the beautiful mountains and nature trails in Mabinay.</p>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/color/96/000000/waterfall.png" alt="Waterfall">
+            <h3>Niludhan Falls</h3>
+            <p>Visit stunning waterfalls perfect for sightseeing and relaxation.</p>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/color/96/000000/cave.png" alt="Cave">
+            <h3>Bulwang Caves</h3>
+            <p>Explore the famous caves and underground wonders of the area.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    &copy; 2026 MAB-BILIS. All rights reserved.
+</footer>
+
+<!-- SIGN UP MODAL -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Register Your Business</h2>
+    <form method="POST" action="register_process.php">
+        <input type="text" name="name" placeholder="Owner Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="text" name="business_name" placeholder="Business Name" required>
+        <input type="text" name="address" placeholder="Address" required>
+        <input type="text" name="contact_number" placeholder="Contact Number" required>
+        <button type="submit">Register</button>
+    </form>
+    <div class="login-link">
+        Already have an account? <a href="javascript:void(0)" id="closeSignupToLogin">Login here</a>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Login</h2>
+    <form method="POST" action="login_process.php">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <div class="signup-link">
+        Don't have an account? <a href="javascript:void(0)" id="closeLoginToSignup">Sign Up here</a>
+    </div>
+  </div>
+</div>
+
+<!-- JS for modals -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var signupModal = document.getElementById("signupModal");
+    var loginModal = document.getElementById("loginModal");
+
+    var signupBtn = document.getElementById("signupBtn");
+    var loginBtn = document.getElementById("loginBtn");
+
+    var closeSignup = signupModal.getElementsByClassName("close")[0];
+    var closeLogin = loginModal.getElementsByClassName("close")[0];
+
+    var closeSignupToLogin = document.getElementById("closeSignupToLogin");
+    var closeLoginToSignup = document.getElementById("closeLoginToSignup");
+
+    // Open modals
+    signupBtn.onclick = function(){ signupModal.style.display = "block"; }
+    loginBtn.onclick = function(){ loginModal.style.display = "block"; }
+
+    // Close modals on X
+    closeSignup.onclick = function(){ signupModal.style.display = "none"; }
+    closeLogin.onclick = function(){ loginModal.style.display = "none"; }
+
+    // Switch from signup to login
+    closeSignupToLogin.onclick = function(){
+        signupModal.style.display = "none";
+        loginModal.style.display = "block";
+    }
+
+    // Switch from login to signup
+    closeLoginToSignup.onclick = function(){
+        loginModal.style.display = "none";
+        signupModal.style.display = "block";
+    }
+
+    // Close on click outside
+    window.onclick = function(event){
+        if(event.target == signupModal){ signupModal.style.display = "none"; }
+        if(event.target == loginModal){ loginModal.style.display = "none"; }
+    }
+});
+</script>
+
+</body>
+</html>
